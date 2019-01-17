@@ -1,9 +1,12 @@
 package vfreiman.examples;
 
+import java.io.Serializable;
 import java.util.AbstractQueue;
 import java.util.Iterator;
+import java.util.Objects;
+import java.util.Queue;
 
-public class MyLinkedQueue<E> extends AbstractQueue<E> {
+public class MyLinkedQueue<E> extends AbstractQueue<E> implements Queue<E>, Cloneable, Serializable {
 
     private Node<E> head;
     private Node<E> tail;
@@ -57,7 +60,6 @@ public class MyLinkedQueue<E> extends AbstractQueue<E> {
         head = prevNode;
 
         size --;
-
         return result;
     }
 
@@ -67,13 +69,13 @@ public class MyLinkedQueue<E> extends AbstractQueue<E> {
     }
 
     private void link(Node<E> n1, Node<E>  n2) {
-        if (n1 != null) n1.next = n2;
-        if (n2 != null) n2.prev = n1;
+        if (Objects.nonNull(n1)) n1.next = n2;
+        if (Objects.nonNull(n2)) n2.prev = n1;
     }
 
     private void unlink(Node<E> n1, Node<E>  n2) {
-        if (n1 != null) n1.next = null;
-        if (n2 != null) n2.prev = null;
+        if (Objects.nonNull(n1)) n1.next = null;
+        if (Objects.nonNull(n2)) n2.prev = null;
     }
 
     private class MyLinkedQueueIterator implements Iterator<E> {

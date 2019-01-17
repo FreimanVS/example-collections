@@ -1,7 +1,6 @@
 package vfreiman.examples.archive;
 
 import java.io.PrintWriter;
-import java.util.Arrays;
 
 public class MyDeque2 {
     private int[] buffer;
