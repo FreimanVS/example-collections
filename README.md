@@ -1,3 +1,3 @@
 # example-collections
 
-My implementation of a Queue Collection.
+It is my implementation of a Queue Collection.
